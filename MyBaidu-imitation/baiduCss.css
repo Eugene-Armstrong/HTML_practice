@@ -1,0 +1,474 @@
+body {
+    margin: 0px;
+    overflow-y: scroll;
+    font-family: Arial;
+}
+
+.userMenu, .setMenu {
+    padding-top: 10px;
+    margin-top: -8px;
+    position: absolute;
+    float: right;
+    overflow: hidden;
+    display: none;
+}
+
+.userItem, .setItem {
+    color: black;
+    background-color: ghostwhite;
+    text-decoration: none;
+    text-align: left;
+    padding: 0 8px;
+    width: 54px;
+    line-height: 25px;
+    font-size: 12px;
+    display: block;
+}
+
+.userItem:hover, .setItem:hover {
+    color: white;
+    background-color: #38f;
+}
+
+.moreMenu {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    width: 85px;
+    height: 100%;
+    border-left: 1px solid #e7e7e7;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    text-align: center;
+    display: none;
+}
+
+.moreItem {
+    padding-top: 15px;
+    display: block;
+    text-align: center;
+    width: 66px;
+    height: 76px;
+    margin: 0 auto;
+    font-size: 12px;
+    border-bottom: #f0f0f0 1px solid;
+    color: #666;
+    text-decoration: none;
+    overflow: hidden;
+    line-height: 16px;
+}
+
+/*换肤功能块样式*/
+.HF {
+    /*换肤*/
+    color: #555;
+}
+
+.SQ {
+    /*收起*/
+    color: #38f;
+}
+
+.cancel:hover {
+    /*不使用换肤*/
+    color: red;
+}
+
+.skin {
+    width: 100%;
+    height: 0px;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+}
+
+.skinMenu {
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.skinTitle {
+    width: 911px;
+    height: 45px;
+    margin: 0px auto;
+}
+
+.skinTitleItems {
+    width: 10%;
+    line-height: 45px;
+    float: left;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.skinTitleItems:hover {
+    color: white;
+    background: #38f;
+}
+
+.bgSetting {
+    margin-left: 15px;
+    font-size: 13px;
+    line-height: 45px;
+    float: right;
+    cursor: pointer;
+}
+
+.skinBg {
+    width: 911px;
+    height: 205px;
+    margin: 25px auto;
+}
+
+.bgLeft {
+    width: 590px;
+    height: 190px;
+    float: left;
+    cursor: pointer;
+}
+
+.bgLeft img {
+    width: 97px;
+    height: 59px;
+    display: block;
+    float: left;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+.bgLeft .big {
+    width: 195px;
+    height: 119px;
+}
+
+.bgLeft .last {
+    position: relative;
+    top: -60px;
+}
+
+.bgRight {
+    width: 264px;
+    height: 179px;
+    float: right;
+    background: url(image/mySkin/bg1s.jpg);
+    background-size: 294px;
+    overflow: hidden;
+}
+
+/*end of 换肤功能样式*/
+
+.fixed-menu {
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px lightgrey;
+    display: none;
+}
+
+.newsItemName:hover,
+.newsName:hover,
+.hotPointItem:hover,
+.videoName:hover,
+.shoppingItems:hover,
+.moreItem:hover {
+    /*鼠标悬停样式*/
+    color: #38f;
+    text-decoration: underline;
+}
+
+.nav1 {
+    /*页顶导航栏框架样式*/
+    font-size: smaller;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.nav1Ctn {
+    /*页顶导航栏显示内容样式*/
+    color: #555;
+    margin-left: 15px;
+}
+
+.morePro {
+    /*更多产品样式*/
+    display: inline-block;
+    text-align: center;
+    width: 86px;
+    line-height: 30px;
+    background-color: #38f;
+    color: white;
+    margin-left: 15px;
+}
+
+.searchTxt {
+    /*搜索框样式*/
+    font-size: 16px;
+    padding: 8px 5px 8px 5px;
+}
+
+.baiduBtn {
+    /*百度按钮样式*/
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    line-height: 39px;
+    background-color: #38f;
+    color: white;
+    margin-left: -5px;
+}
+
+.baiduBtn:hover {
+    /*百度按钮鼠标悬停样式*/
+    background-color: #0066FF;
+}
+
+.tips {
+    /*提示信息样式*/
+    color: #999;
+    font-size: 12px;
+    float: left
+}
+
+.myFocus {
+    /*我的关注*/
+    float: left;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #E4E4E4;
+}
+
+.current > span.nav2 {
+    /*当前导航栏标签高亮样式*/
+    background: #38f;
+    font-weight: bold;
+    color: white;
+}
+
+.nav2Box {
+    /*页中导航栏菜单框架样式*/
+    width: 895px;
+    height: 40px;
+    border: 1px solid #E4E4E4;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav2 {
+    /*页中导航栏菜单样式*/
+    float: left;
+    display: inline-block;
+    text-align: center;
+    width: 80px;
+    line-height: 40px;
+    color: black;
+}
+
+.nav2:hover {
+    /*页中导航栏菜单鼠标悬停样式*/
+    background-color: lightblue;
+    color: white;
+}
+
+.nav2CtnBox {
+    /*页中导航栏内容框架样式*/
+    width: 845px;
+    height: 320px;
+    padding: 25px 25px 25px 25px;
+    border: 1px solid #E4E4E4;
+    border-top-style: none;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav2Video {
+    /*视频*/
+    display: block;
+    margin: 0px 20px 0px 0px;
+    float: left;
+}
+
+.videoNameBox {
+    /*视频名称框样式*/
+    padding: 0 10px;
+    width: 175px;
+    height: 50px;
+    background-color: #F1F1F1;
+    text-align: left;
+    font-size: 13px;
+    display: block;
+}
+
+.videoName {
+    /*视频名称样式*/
+    padding-top: 6px;
+    font-size: 12px;
+    color: black;
+}
+
+.nav2Ctn {
+    /*页中导航栏内容样式*/
+    display: inline-block;
+    width: 577px;
+    float: left
+}
+
+.logoItems {
+    /*导航商标样式*/
+    margin: 15px 15px 0 0;
+    text-decoration: none;
+    line-height: 58px;
+    width: 126px;
+    color: black;
+    display: block;
+    border-style: none;
+    font-size: 15px;
+    text-align: center;
+    background-color: #fcfcfc;
+    border: solid 1px #F1F1F1;
+}
+
+.logoItems:hover {
+    /*导航商标悬停样式*/
+    background-color: lavender;
+}
+
+.shopping {
+    /*购物*/
+    text-align: left;
+    color: black;
+    font-size: 14px;
+    line-height: 22px;
+    border-bottom: solid 1px #E4E4E4;
+}
+
+.shoppingItems {
+    /*右侧购物栏*/
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+    color: grey;
+    width: 50%;
+    line-height: 31px;
+    float: left;
+}
+
+.hotPoint {
+    /*实时热点样式*/
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+
+}
+
+.hotPointBox {
+    /*热点框架样式*/
+    width: 267px;
+    height: 300px;
+    padding: 0;
+    float: left;
+    display: block;
+}
+
+.hotPointCtn {
+    /*热点内容样式1*/
+    display: inline-block;
+    text-align: left;
+    font-size: 14px;
+    float: left;
+    width: 133px;
+    line-height: 34px;
+}
+
+.hotPointItem {
+    /*热点内容样式2*/
+    color: black;
+    text-decoration: none;
+}
+
+.newsName {
+    /*新闻标题样式*/
+    margin: 0px;
+    padding-top: 19px;
+    width: 550px;
+    font-size: 18px;
+    font-family: arial, 'Microsoft Yahei', 微软雅黑;
+    float: left;
+    text-align: left;
+    color: #333;
+}
+
+.newsSrc {
+    /*新闻源样式*/
+    margin: 0px;
+    padding-top: 11px;
+    padding-bottom: 19px;
+    width: 550px;
+    color: #999;
+    font-size: 13px;
+    float: left;
+    text-align: left;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.newsItem {
+    /*图片右侧新闻项样式*/
+    width: 330px;
+    float: left;
+    padding: 21px 15px 21px 25px;
+}
+
+.newsItemName {
+    /*图右新闻项标题*/
+    display: inline-block;
+    width: 330px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: arial, 'Microsoft Yahei', 微软雅黑;
+    text-align: left;
+    color: #333;
+}
+
+.newsItemSrc {
+    /*图右新闻项源信息*/
+    display: inline-block;
+    color: #999;
+    font-size: 13px;
+    padding-top: 8px
+}
+
+.news3 {
+    /*新闻类型3样式*/
+    padding: 22px 0px 22px 0px;
+    border-bottom: 1px solid #F0F0F0;
+    float: left;
+    text-align: left;
+}
+
+.go-top{
+    display: none;
+    bottom: 10%;
+    position: fixed;
+    cursor: pointer;
+}
+
+.footing {
+    /*页尾样式*/
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: black;
+    font-size: 10px;
+}

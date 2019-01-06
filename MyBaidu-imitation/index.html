@@ -1,0 +1,932 @@
+<html>
+<head>
+    <title>百度一下，你就知道</title>
+    <meta http-equiv="X-UA-Compatible" content="edge"/>
+    <link type="text/css" rel="stylesheet" href="./baiduCss.css">
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="myScript.js"></script>
+</head>
+<body>
+
+<!--实现下拉菜单-->
+<script type="text/javascript">
+    $(function () {
+        //获取要用户名下拉菜单对应元素与浏览器最左侧的距离
+        var dm1 = $("#user").offset().left;
+        //得到菜单合适的显示位置
+        $(".userMenu").css("margin-left", dm1 + 10);
+        //鼠标悬停用户名显示菜单
+        $("#user").hover(function () {
+            $(".userMenu").css("display", "block");
+        }, function () {
+            $(".userMenu").css("display", "none");
+        });
+        //离开用户名后鼠标悬停下拉菜单显示
+        $(".userMenu").hover(function () {
+            $(".userMenu").css("display", "block");
+        }, function () {
+            $(".userMenu").css("display", "none");
+        });
+
+        //***********设置菜单同理得***********
+        var dm2 = $("#set").offset().left;
+        $(".setMenu").css("margin-left", dm2 - 20);
+        $("#set").hover(function () {
+            $(".setMenu").css("display", "block");
+        }, function () {
+            $(".setMenu").css("display", "none");
+        });
+        $(".setMenu").hover(function () {
+            $(".setMenu").css("display", "block");
+        }, function () {
+            $(".setMenu").css("display", "none");
+        });
+
+        //***********更多产品菜单同理得***********
+        $("#more").hover(function () {
+            $(".moreMenu").css("display", "block");
+        }, function () {
+            $(".moreMenu").css("display", "none");
+        });
+        $(".moreMenu").hover(function () {
+            $(".moreMenu").css("display", "block");
+        }, function () {
+            $(".moreMenu").css("display", "none");
+        });
+    })
+</script>
+<!--end-->
+
+<!--实现右侧实时热点定点固定
+    && 顶部固定搜索块+返回顶部定点显示-->
+<script>
+    $(function () {
+        //获取要定位元素距离浏览器顶部的距离
+        var navH = $(".hotPointBox").offset().top - 130;
+        $(".hotPointBox").css("margin-left", "577px");
+        $(".hotPointBox").css("float", "none");
+
+        //获取顶部固定搜索块合适的logo-left距离
+        var dis = $(".nav2Box").offset().left;
+        $("#logo").css("margin-left", dis);
+
+        //获取返回顶部与浏览器左侧合适的距离
+        var up = dis + 918;
+        $(".go-top").css("margin-left", up);
+
+        //滚动条事件
+        $(window).scroll(function () {
+            //获取滚动条的滑动距离
+            var scroH = $(this).scrollTop();
+            //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定/显示，反之就不固定/不显示
+            if (scroH >= navH) {
+                $(".hotPointBox").css({"position": "fixed", "top": 130});
+                $(".hotPointBox").css("margin-left", "578px");
+                $(".fixed-menu").fadeIn(500);
+                $(".go-top").fadeIn(1000);
+            } else if (scroH < navH) {
+                $(".hotPointBox").css({"position": "static"});
+                $(".hotPointBox").css("float", "none");
+                $(".fixed-menu").fadeOut(500);
+                $(".go-top").fadeOut(1000);
+            }
+        })
+    })
+</script>
+<!--end-->
+
+<!--页顶导航栏布局-->
+<div style="width:100%;min-width: 1000px;
+    background:rgba(255,255,255,0.8)">
+    <div class="nav1" align="right">
+            <span style="float: left;margin-top: 8px">
+                <a href="#" style="color: #555;text-decoration: none">
+                    &nbsp;&nbsp;&nbsp;珠海：27℃&nbsp;
+                    <span style="color: #38f"><b>优</b></span>
+                    &nbsp;28
+                </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" style="color: #555">宝箱</a>&nbsp;&nbsp;&nbsp;
+                <a class="HF" href="#">换肤</a>&nbsp;&nbsp;&nbsp;
+                <a href="#" style="color: #555">消息</a>&nbsp;&nbsp;&nbsp;
+            </span>
+            <span style="font-weight: bold">
+                <a href="#" style="color: #555">糯米</a>
+                <a href="#" class="nav1Ctn">新闻</a>
+                <a href="#" class="nav1Ctn">hao123</a>
+                <a href="#" class="nav1Ctn">地图</a>
+                <a href="#" class="nav1Ctn">视频</a>
+                <a href="#" class="nav1Ctn">贴吧</a>
+            </span>
+            <span style="text-decoration: none">
+                <a href="#" id="user" class="nav1Ctn">射手痴心遇冷风</a>
+                <a href="#" id="set" class="nav1Ctn">设置</a>
+            </span>
+        <span id="more" class="morePro">更多产品</span>
+
+        <!--用户名下拉菜单-->
+        <div class="userMenu">
+            <div>
+                <a class="userItem" href="#">我的KTV</a>
+                <a class="userItem" href="#">个人中心</a>
+                <a class="userItem" href="#">帐号设置</a>
+                <a class="userItem" href="#">意见反馈</a>
+                <a class="userItem" href="#">退出</a>
+            </div>
+        </div>
+        <!--end of用户名下拉菜单-->
+
+        <!--设置项下拉菜单-->
+        <div class="setMenu">
+            <div>
+                <a class="setItem" href="#">搜索设置</a>
+                <a class="setItem" href="#">高级搜索</a>
+                <a class="setItem" href="#">搜索历史</a>
+                <a class="setItem" href="#">意见反馈</a>
+            </div>
+        </div>
+        <!--设置项下拉菜单-->
+
+        <!--更多下拉菜单-->
+        <div class="moreMenu">
+            <div style="display: inline-block;margin-bottom: 10px;
+                text-align: center;width: 86px;line-height: 30px;">
+                更多产品
+            </div>
+            <a style="border-top: #f0f0f0 1px solid;"
+               href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>巴拉拉</div>
+            </a>
+            <a href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>能量</div>
+            </a>
+            <a href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>乌卡拉</div>
+            </a>
+            <a href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>魔仙变身</div>
+            </a>
+            <a href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>变变变！</div>
+            </a>
+            <a href="#" class="moreItem">
+                <img src="image/more.png">
+
+                <div>请上车！</div>
+            </a>
+        </div>
+        <!--end of更多下拉菜单-->
+    </div>
+</div>
+<!--end-->
+
+<!--换肤布局-->
+<div class="skin">
+    <div class="skinMenu">
+        <div class="skinTitle">
+            <ul style="list-style: none;margin: 0;padding: 0;width: 500px">
+                <li class="skinTitleItems">热门</li>
+                <li class="skinTitleItems">游戏</li>
+                <li class="skinTitleItems">卡通</li>
+                <li class="skinTitleItems">女神</li>
+                <li class="skinTitleItems">明星</li>
+                <li class="skinTitleItems">风景</li>
+                <li class="skinTitleItems">简约</li>
+                <li class="skinTitleItems">小清新</li>
+                <li class="skinTitleItems">自定义</li>
+                <li class="skinTitleItems">最近</li>
+            </ul>
+            <div class="bgSetting">
+                <span class="cancel">X  不使用换肤</span>
+                <span style="margin-left: 30px" class="SQ">
+                    <b>↑ 收起</b>
+                </span>
+            </div>
+            <div class="bgSetting">
+                <input type="range" max="1" min="0" value="0.5" step="0.01"
+                       style="width: 100px;margin-right:15px;cursor: pointer;height: 45px"
+                       onmousemove="changeBg(this.value)">
+            </div>
+            <div class="bgSetting">背景透明度</div>
+        </div>
+    </div>
+
+    <script>
+        //动态显示背景透明度变化方法
+        function changeBg(value) {
+            $(".nav2CtnBox").css("background", "rgba(255,255,255," + value + ")");
+            $(".nav2Box").css("background", "rgba(255,255,255," + value + ")");
+        }
+    </script>
+
+    <div class="skinBg">
+        <div class="bgLeft">
+            <img class="big" src="image/mySkin/bg0s.jpg">
+            <img src="image/mySkin/bg1s.jpg">
+            <img src="image/mySkin/bg2s.jpg">
+            <img src="image/mySkin/bg3s.jpg">
+            <img src="image/mySkin/bg4s.jpg">
+            <img src="image/mySkin/bg4s.jpg">
+            <img class="big" src="image/mySkin/bg6s.jpg">
+            <img src="image/mySkin/bg7s.jpg">
+            <img src="image/mySkin/bg8s.jpg">
+            <img class="last" src="image/mySkin/bg9s.jpg">
+            <img class="last" src="image/mySkin/bg10s.jpg">
+            <img class="last" src="image/mySkin/bg11s.jpg">
+        </div>
+        <div class="bgRight">
+            <div style="text-align: center">
+                <img src="image/bd_logo.png"
+                     style="margin-top: 12%;width: 90px;height: 43px">
+                <img src="image/mySkin/baiduInput.png"
+                     style="margin-top: 3%;width: 180px;height: 10px">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--end-->
+
+<!--实现换肤-->
+<script type="text/javascript">
+    var n = 1;
+    //点击“换肤”触发换肤样式显示事件
+    $(".HF").click(function () {
+        $(".skin").animate({height: "288px"}, 500);
+    });
+    //点击“收起”触发换肤样式消失事件
+    $(".SQ").click(function () {
+        $(".skin").animate({height: "0px"}, 500);
+    });
+    //设置背景图选项鼠标悬停事件
+    $(".bgLeft img").hover(function () {
+        n = $(this).index();
+        //设置右侧背景预览框效果
+        $(".bgRight").css("background", 'url(image/mySkin/bg' + n + '.jpg)');
+        $(".bgRight").css("background-size", "264px 180px");
+    });
+    //点击选择任一背景图对<body>执行换肤功能
+    $(".bgLeft img").click(function () {
+        $("body").css("background-image", 'url(image/mySkin/bg' + n + '.jpg)');
+        //背景图片不随滚动轮滚动
+        $("body").css("background-attachment", 'fixed');
+        $("body").css("background-repeat", 'no-repeat');
+    });
+    //点击“不使用换肤”取消换肤效果
+    $(".cancel").click(function () {
+        $("body").css("background", 'none');
+    });
+</script>
+<!--end-->
+
+<!--顶部固定搜索块布局-->
+<div class="fixed-menu">
+    <img id="logo" src="image/bd_logo.png" alt="链接" style="float: left"
+         height="60px" width="130px"/>
+
+    <form style="float: left;line-height: 75px">
+        <input class="searchTxt" autofocus="autofocus"
+               name="txt" type="text" size="70" maxlength="40">
+        <a href="#"><span class="baiduBtn">百度一下</span></a>
+    </form>
+</div>
+<!--end-->
+
+<!--Logo && 搜索框布局-->
+<div style="min-height: 250px;min-width: 1000px;margin-top: 8px">
+    <center>
+        <img src="image/bd_logo.png" alt="链接" height="130px" width="270px"/>
+    </center>
+    <center>
+        <form style="margin-top: 0.5em">
+            <input class="searchTxt" autofocus="autofocus"
+                   name="txt" type="text" size="70" maxlength="40">
+            <a href="#"><span class="baiduBtn">百度一下</span></a>
+        </form>
+    </center>
+    <br><br>
+</div>
+<!--end-->
+
+<!--页中导航栏及内容布局-->
+<div align="center">
+    <div id="nav2Titles" class="nav2Box">
+        <a href="#" style="text-decoration: none">
+            <span class="nav2" style="width: 130px">我的关注</span>
+        </a>
+        <a href="#" style="text-decoration: none">
+            <span class="nav2">推荐</span>
+        </a>
+        <a href="#" style="text-decoration: none">
+            <span class="nav2">导航</span>
+        </a>
+        <a href="#" style="text-decoration: none">
+            <span class="nav2">视频</span>
+        </a>
+        <a href="#" style="text-decoration: none">
+            <span class="nav2">购物</span>
+        </a>
+    </div>
+
+    <div id="nav2Display">
+        <!--我的关注-->
+        <div class="nav2CtnBox" style="display: none">
+            <a href="#" style="color: black;text-decoration: none">
+                <div class="myFocus">
+                    <b>&gt;&nbsp;我的导航(0)</b>
+                </div>
+                <div style="float: left;margin-top: 15px;font-size: 14px">
+                    + 自定义
+                </div>
+            </a>
+        </div>
+
+        <!--推荐-->
+        <div class="nav2CtnBox" style="height: 1300px;display: block">
+            <div class="tips">
+                <span style="color: #E4E4E4;margin-right: 30px">
+                    ——————————————</span>
+                以下信息根据你的兴趣推荐
+                <span style="color: #E4E4E4;margin-left: 30px">
+                    ——————————————</span>
+            </div>
+
+            <!--左侧图文新闻-->
+            <div class="nav2Ctn">
+                <!--新闻样式类型1-->
+                <a href="#">
+                    <h2 class="newsName" style="padding-top: 22px">
+                        教育部：15省份取消本科三批 上海合并本科一、二批
+                    </h2>
+                </a>
+
+                <div class="newsSrc">环球社会 &nbsp; 09-05 &nbsp; 17:20 &nbsp;
+                    <span style="color: red">热点</span>
+                </div>
+                <!--end of 类型1-->
+
+                <!--新闻样式类型2-->
+
+                <a href="#">
+                    <h2 class="newsName">
+                        世界最长寿女性去世：经历三个世纪 生育六个子女
+                    </h2>
+                </a>
+
+                <div class="newsName" style="padding-top: 10px">
+                    <a href="#"><img src="image/oldman.jpg"></a>
+                    <a href="#"><img src="image/oldman.jpg"></a>
+                    <a href="#"><img src="image/oldman.jpg"></a>
+                </div>
+                <div class="newsSrc">
+                    人民网 &nbsp; 09-05 &nbsp; 07:17 &nbsp;
+                </div>
+                <!--end of 类型2-->
+
+                <!--新闻样式类型3-->
+                <div class="news3">
+                    <div style="display:inline-block;width: 180px;float: left;">
+                        <a href="#"><img src="image/exam.jpg"></a>
+                    </div>
+                    <div class="newsItem">
+                        <a href="#">
+                            <div class="newsItemName">
+                                教育部：禁止在研究生招生中乱收费 违规追责
+                            </div>
+                        </a>
+
+                        <div class="newsItemSrc" style="width: 100%">
+                            搜狐新闻 &nbsp; 09-05 &nbsp; 20:11 &nbsp;
+                            <span style="color: red">热点</span>
+                        </div>
+                    </div>
+                </div>
+                <!--end of 类型3-->
+
+                <!--更多新闻-->
+                <div class="news3">
+                    <div style="display:inline-block;width: 180px;float: left;">
+                        <a href="#"><img src="image/2017.png"></a>
+                    </div>
+                    <div class="newsItem">
+                        <a href="#">
+                            <div class="newsItemName">
+                                2017考研：想要成为推免生，你需要准备什么？
+                            </div>
+                        </a>
+
+                        <div class="newsItemSrc" style="width: 100%">
+                            搜狐新闻 &nbsp; 09-05 &nbsp; 15:44 &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <!--更多新闻-->
+                <div class="news3">
+                    <div style="display:inline-block;width: 180px;float: left;">
+                        <a href="#"><img src="image/kitchen.jpg"></a>
+                    </div>
+                    <div class="newsItem">
+                        <a href="#">
+                            <div class="newsItemName">
+                                彭丽媛同二十国集团外方代表团团长夫人参观中国美术学院
+                            </div>
+                        </a>
+
+                        <div class="newsItemSrc" style="width: 100%">
+                            搜狐新闻 &nbsp; 09-05 &nbsp; 18:38 &nbsp;
+                            <span style="color: red">热点</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--更多新闻-->
+
+                <a href="#">
+                    <h2 class="newsName" style="padding-top: 22px;">
+                        2017考研：九月需重点关注三件事</h2>
+                </a>
+
+                <div class="newsSrc">搜狐教育 &nbsp; 09-05 &nbsp; 14:14 &nbsp;</div>
+
+                <!--更多新闻-->
+                <a href="#">
+                    <h2 class="newsName">库里现身广州指导小球员训练</h2>
+                </a>
+
+                <div class="newsName" style="padding-top: 10px">
+                    <a href="#"><img src="image/kuli.jpg"></a>
+                    <a href="#"><img src="image/kuli.jpg"></a>
+                    <a href="#"><img src="image/kuli.jpg"></a>
+                </div>
+                <div class="newsSrc">搜狐体育 &nbsp; 09-04 &nbsp; 08:31 &nbsp;</div>
+
+                <!--更多新闻-->
+                <div class="news3">
+                    <div style="display:inline-block;width: 180px;float: left;">
+                        <a href="#"><img src="image/sanfen.jpg"></a>
+                    </div>
+                    <div class="newsItem">
+                        <a href="#">
+                            <div class="newsItemName">做虾饺比投三分难多了</div>
+                        </a>
+
+                        <div class="newsItemSrc" style="width: 100%">
+                            凤凰体育 &nbsp; 09-04 &nbsp; 05:46 &nbsp;
+                            <span style="color: red">热点</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of 左侧图文新闻-->
+
+            <!--右侧实时热点新闻-->
+            <div class="hotPointBox">
+                <div style="float: left;width: 100%;
+                    margin:-15px 0 15px 0;">
+                    <a href="#" class="hotPoint">实时热点</a>
+                    <a href="#" style="color: black;font-size: 12px">
+                        <div style="float: right;margin-right: 10px">换一换</div>
+                    </a>
+                </div>
+
+                <ul style="list-style: none;padding: 0;margin: auto">
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            经理打算发红包</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            小区现身3米巨蟒</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            陈慧琳穿睡裙出境</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            陈晓东片场庆生</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            哈士奇瞪主人爆红</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            特警归家睡屋外</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            曹云金怒斥郭德纲</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            女保镖舒心走红</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            女主播直播吃香蕉</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            经理用力发红包</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            王思聪炮轰大张伟</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            贺老板也发红包</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            周杰伦演唱会摔倒</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            马云报仇买肯德基</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            红包被疯狂抢光</a>
+                    </span>
+                    </li>
+                    <li class="hotPointCtn">
+                    <span>
+                        <a class="hotPointItem" href="#">
+                            岳云鹏力挺郭德纲</a>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+            <!--end of 右侧实时热点新闻-->
+        </div>
+
+        <!--导航-->
+        <div class="nav2CtnBox" style="display: none;padding-top:20px">
+            <div style="text-align: left">
+                <div><b>猜你喜欢</b></div>
+                <div style="float: left">
+                    <a href="#" title="百度糯米" class="logoItems">
+                        <img src="image/logo/nuomi.png" style="margin-right: 3px">
+                        <span>百度糯米</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="1号店" class="logoItems">
+                        <img src="image/logo/1hao.png" style="margin-right: 3px">
+                        <span>1号店</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="京东商城" class="logoItems">
+                        <img src="image/logo/jingdong.png" style="margin-right: 3px">
+                        <span>京东商城</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="当当网" class="logoItems">
+                        <img src="image/logo/dd.png" style="margin-right: 3px">
+                        <span>当当网</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="爱奇艺" class="logoItems">
+                        <img src="image/logo/aiqiyi.png" style="margin-right: 3px">
+                        <span>爱奇艺</span>
+                    </a>
+                </div>
+                <div style="float: left;">
+                    <a href="#" title="斗鱼直播" class="logoItems" style="margin-right: 0">
+                        <img src="image/logo/douyu.png" style="margin-right: 3px">
+                        <span>斗鱼直播</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="百度糯米" class="logoItems">
+                        <img src="image/logo/nuomi.png" style="margin-right: 3px">
+                        <span>百度糯米</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="1号店" class="logoItems">
+                        <img src="image/logo/1hao.png" style="margin-right: 3px">
+                        <span>1号店</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="京东商城" class="logoItems">
+                        <img src="image/logo/jingdong.png" style="margin-right: 3px">
+                        <span>京东商城</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="当当网" class="logoItems">
+                        <img src="image/logo/dd.png" style="margin-right: 3px">
+                        <span>当当网</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="爱奇艺" class="logoItems">
+                        <img src="image/logo/aiqiyi.png" style="margin-right: 3px">
+                        <span>爱奇艺</span>
+                    </a>
+                </div>
+                <div style="float: left;">
+                    <a href="#" title="斗鱼直播" class="logoItems" style="margin-right: 0">
+                        <img src="image/logo/douyu.png" style="margin-right: 3px">
+                        <span>斗鱼直播</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="百度糯米" class="logoItems">
+                        <img src="image/logo/nuomi.png" style="margin-right: 3px">
+                        <span>百度糯米</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="1号店" class="logoItems">
+                        <img src="image/logo/1hao.png" style="margin-right: 3px">
+                        <span>1号店</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="京东商城" class="logoItems">
+                        <img src="image/logo/jingdong.png" style="margin-right: 3px">
+                        <span>京东商城</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="当当网" class="logoItems">
+                        <img src="image/logo/dd.png" style="margin-right: 3px">
+                        <span>当当网</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="爱奇艺" class="logoItems">
+                        <img src="image/logo/aiqiyi.png" style="margin-right: 3px">
+                        <span>爱奇艺</span>
+                    </a>
+                </div>
+                <div style="float: left;">
+                    <a href="#" title="斗鱼直播" class="logoItems" style="margin-right: 0">
+                        <img src="image/logo/douyu.png" style="margin-right: 3px">
+                        <span>斗鱼直播</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="百度糯米" class="logoItems">
+                        <img src="image/logo/nuomi.png" style="margin-right: 3px">
+                        <span>百度糯米</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="1号店" class="logoItems">
+                        <img src="image/logo/1hao.png" style="margin-right: 3px">
+                        <span>1号店</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="京东商城" class="logoItems">
+                        <img src="image/logo/jingdong.png" style="margin-right: 3px">
+                        <span>京东商城</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="当当网" class="logoItems">
+                        <img src="image/logo/dd.png" style="margin-right: 3px">
+                        <span>当当网</span>
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#" title="爱奇艺" class="logoItems">
+                        <img src="image/logo/aiqiyi.png" style="margin-right: 3px">
+                        <span>爱奇艺</span>
+                    </a>
+                </div>
+                <div style="float: left;">
+                    <a href="#" title="斗鱼直播" class="logoItems" style="margin-right: 0">
+                        <img src="image/logo/douyu.png" style="margin-right: 3px">
+                        <span>斗鱼直播</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--视频-->
+        <div class="nav2CtnBox" style="display: none">
+            <div class="nav2Video">
+                <a href="#" title="猫和老鼠">
+                    <img src="image/tomAndJerry.jpg"
+                         style="height: 270px">
+                </a>
+
+                <div class="videoNameBox">
+                    <a href="#" style="text-decoration: none">
+                        <div class="videoName" style="font-size: 15px">
+                            猫和老鼠
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav2Video">
+                <a href="#" title="航海王">
+                    <img src="image/onePiece.jpg">
+                </a>
+
+                <div class="videoNameBox">
+                    <a href="#" style="text-decoration: none">
+                        <div class="videoName" style="font-size: 15px">
+                            航海王
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav2Video">
+                <div style="margin-bottom: 20px">
+                    <a href="#" title="核轰日本是世纪骗局？">
+                        <img src="image/boom.jpg">
+                    </a>
+
+                    <div class="videoNameBox">
+                        <a href="#" style="text-decoration: none">
+                            <div class="videoName"
+                                 style="padding-top: 5px">
+                                核轰日本是世纪骗局？
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="#" title="解放军炮兵遭黑：开火时拉绳子像胆小鬼">
+                        <img src="image/soldier.jpg">
+                    </a>
+
+                    <div class="videoNameBox">
+                        <a href="#" style="text-decoration: none">
+                            <div class="videoName"
+                                 style="padding-top: 5px">
+                                解放军炮兵遭黑：开火时拉绳子像胆小鬼
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav2Video" style="margin-right: 0px">
+                <div style="margin-bottom: 20px">
+                    <a href="#" title="大胃王密子君（8份热干面+1份豆皮）">
+                        <img src="image/eat.jpg">
+                    </a>
+
+                    <div class="videoNameBox">
+                        <a href="#" style="text-decoration: none">
+                            <div class="videoName"
+                                 style="padding-top: 5px">
+                                大胃王密子君（8份热干面+1份豆皮）
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" title="刚出生的小奶猫探索世界">
+                        <img src="image/kitty.jpg">
+                    </a>
+
+                    <div class="videoNameBox">
+                        <a href="#" style="text-decoration: none">
+                            <div class="videoName"
+                                 style="padding-top: 5px">
+                                刚出生的小奶猫探索世界
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--购物-->
+        <div class="nav2CtnBox" style="display: none">
+            <a href="#" title="乐迷电商节疯狂来袭">
+                <div class="nav2Video">
+                    <img src="image/leShi.jpg">
+
+                </div>
+            </a>
+            <a href="#" title="中秋聚惠1元抢">
+                <div class="nav2Video">
+                    <img src="image/moonCake.jpg">
+
+                </div>
+            </a>
+            <a href="#" title="智能腕表">
+                <div class="nav2Video">
+                    <img src="image/watch.jpg">
+
+                </div>
+            </a>
+
+            <div class="nav2Video" style="margin-right: 0;width: 195px;height: 265px">
+                <a href="#" style="text-decoration: none;">
+                    <div class="shopping">
+                        <b>1元得iPhone SE</b><br>
+                        <span style="color: grey">其他超值商品 1元可得</span>
+
+                        <div style="margin: 10px 0 10px 0;font-size: 12px">去看看</div>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none;">
+                    <div class="shopping" style="border: none;margin-top:10px">
+                        <b>返利商城</b>
+                    </div>
+                    <div>
+                        <ul style="list-style: none;margin: 0;padding: 0">
+                            <li class="shoppingItems">京东商城</li>
+                            <li class="shoppingItems">百度糯米</li>
+                            <li class="shoppingItems">1号店</li>
+                            <li class="shoppingItems">当当网</li>
+                            <li class="shoppingItems">蘑菇街</li>
+                            <li class="shoppingItems">唯品会</li>
+                            <li class="shoppingItems">聚美优品</li>
+                            <li class="shoppingItems">苏宁易购</li>
+                            <li class="shoppingItems">国美在线</li>
+                            <li class="shoppingItems">更多</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+            <div style="padding-top: 15px;color: orangered;float: left">
+                <b>超级优惠</b>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end-->
+
+<!--返回顶部布局-->
+<div>
+    <img class="go-top" src="image/up.png" title="返回顶部">
+</div>
+<!--end-->
+
+<!--实现返回顶部-->
+<script>
+    $(".go-top").click(function (e) {
+        e.preventDefault(); //避免默认事件被触发
+        $("html,body").animate({scrollTop: 0}, 800);
+    })
+</script>
+<!--end-->
+
+<!--页尾布局-->
+<div align="center" class="footing">
+    <a href="#" style="color: #999">设为首页</a> &nbsp;@2016 Baidu &nbsp;
+    <a href="#" style="color: #999">使用百度前必读</a>&nbsp;
+    <a href="#" style="color: #999">意见反馈</a> 京ICP证030173号
+    <div style="margin-top: 5px">京公网安备110000020000001号</div>
+</div>
+<!--the end-->
+</body>
+</html>
