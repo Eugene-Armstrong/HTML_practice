@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>微信上墙-选择活动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/mobile-style.css"/>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+</head>
+<style>
+    body{
+        font-family: "方正兰亭黑简体";
+    }
+    select{
+        background-color: #38f;
+        color: white!important;
+        /*很关键：将默认的select选择框样式清除*/
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+    /*进入活动按钮*/
+    button{
+        margin-top: 3%;
+        width: 50%;
+        background-color:rgba(255,0,0,0.8);
+    }
+    button span{
+        color: white;
+    }
+    /*媒体查询修改个别样式*/
+    /*iPhone5*/
+    @media screen and (max-width: 320px){
+        body{
+            font-size: 13px;
+        }
+        .my-title{
+            font-size: 22px;
+        }
+    }
+    /*iPhone6*/
+    @media screen and (min-width: 375px){
+        body{
+            font-size: 16px;
+        }
+        .my-title{
+            font-size: 28px;
+        }
+    }
+    /*Galaxy*/
+    @media screen and (max-width: 360px){
+        body{
+            font-size: 15px;
+        }
+        .my-title{
+            font-size: 25px;
+        }
+    }
+    /*Nexus7*/
+    @media screen and (min-width: 600px){
+        body{
+            font-size: 25px;
+        }
+        .my-title{
+            font-size: 45px;
+        }
+        button span{
+            font-size: 35px;
+        }
+    }
+</style>
+<body>
+<div class="container">
+    <img class="my-logo" src="imgs/tmpLogo.png">
+    <div class="my-title" style="margin-top: 3%">欢迎参加</div>
+    <div class="my-title">有娱现场新手体验</div>
+    <img class="my-img" src="imgs/headImg.jpg">
+    <div style="margin: 3% 0 10% 0">
+        <select class="btn">
+            <option>选择活动</option>
+            <option>活动-1</option>
+            <option>活动-2</option>
+        </select>
+    </div>
+    <button id="my-refresh" type="button"
+            class="btn btn-lg">
+        <span>刷新活动</span>
+    </button>
+    <a href="mobile-goToWall.html">
+        <button type="button"
+                class="btn btn-lg">
+            <span>进入活动</span>
+        </button>
+    </a>
+</div>
+</body>
+</html>

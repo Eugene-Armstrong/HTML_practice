@@ -1,0 +1,212 @@
+/*共享样式部分*/
+/*共享body*/
+body{
+    font-size: 15px;
+    /*背景固定不动*/
+    background: url("../imgs/bghhh.jpg") center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #f4f4f4;
+}
+/*共享大标题*/
+.my-title{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/*共享活动logo*/
+.my-logo{
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+}
+/*共享头像*/
+.my-img{
+    width: 35%;
+    height: 35%;
+    margin-top: 3%;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+/*共享底部导航栏*/
+.my-nav{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding:0;
+    bottom: 0;
+    left: 0;
+}
+.my-nav a{
+    text-decoration: none;
+}
+.my-nav img{
+    padding: 0;
+    margin: 2% 0 4% 0;
+    width: 25%;
+    height: 25%;
+}
+.my-nav div{
+    width: 49%;
+    display: inline-block;
+}
+/*end*/
+
+/**
+ ************************ 登录界面样式
+*/
+.my-wrap{
+    padding: 20% 8% 5% 8%;
+}
+/*logo图*/
+.logo1{
+    margin-bottom: 5%;
+    width: 30%;
+    height: 6%;
+}
+/*文字logo*/
+.logo2{
+    width: 45%;
+    height: 15%;
+    padding-bottom: 3%;
+}
+/*分界线*/
+.my-hr{
+    border-color: #cfcfcf;
+}
+/*end*/
+
+/**
+ ************************  选择活动界面
+*/
+/*刷新活动按钮*/
+#my-refresh{
+    background-color: #F4A713
+}
+/*end*/
+
+/**
+ ************************  签到界面
+*/
+/*提示输入*/
+.my-tip{
+    line-height: 40px;
+}
+/*联系电话输入框*/
+.my-input{
+    line-height: 40px;
+    width: 80%;
+    padding:0 5%;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255,255,255,0.3);
+}
+/*end*/
+
+/**
+ ************************  进入现场界面
+*/
+/*活动信息面板*/
+.my-panel{
+    background: rgba(222, 205, 206, 0.9);
+    width: 96%;
+    line-height: 28px;
+    min-height: 80%;
+    border-radius: 5px;
+    margin: 5% auto 5% auto;
+    padding: 5% 0;
+}
+.my-headline{
+    display: inline-block;
+    float: left;
+    padding-left: 8%;
+}
+.my-left{
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+}
+/*分界线*/
+.my-line{
+    margin: 3%;
+}
+/*活动流程时间安排*/
+.my-arrange{
+    line-height: 38px;
+}
+.my-time{
+    float: left;
+    color: #cf7100;
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 6%;
+}
+/*end*/
+
+/**
+ ************************  上墙界面
+*/
+/*用户名*/
+.my-name{
+    margin: 2% 0;
+    font-size: 20px;
+    line-height: 40px;
+}
+.my-info{
+    text-align: left;
+    font-size: 20px;
+    line-height: 40px;
+}
+/*留言发送按钮*/
+#my-sent-btn{
+    margin: 5% 5% 5% 0;
+    width: 100%!important;
+    padding-left: 10%;
+    padding-right: 10%;
+    float: left;
+    background-color: rgba(255, 0, 0, 0.9);
+}
+/*end*/
+
+/**
+ ************************  正在摇界面
+*/
+.my-shaking-bg{
+    margin: 5% auto;
+    width: 300px;
+    height: 300px;
+    background: url("../imgs/shaking_bg.png") no-repeat;
+    background-size: 300px;
+}
+.my-hand-wrap{
+    position: relative;
+    left: 54px;
+    width: 178px;
+    height: 178px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+/*倒计时*/
+/*.my-counting{*/
+/*margin-top: 20px;*/
+/*position: relative;*/
+/*text-align: center;*/
+/*left: 54px;*/
+/*width: 178px;*/
+/*line-height: 70px;*/
+/*overflow: hidden;*/
+/*font-weight: bold;*/
+
+/*}*/
+/*三十年单身的震动手速*/
+#shaking-hand{
+    width: 120px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: block;
+}
+/*end*/
