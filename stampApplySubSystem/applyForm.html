@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>印章申请表</title>
+    <script language="JavaScript" src="js/jquery.min.js"></script>
+    <script language="JavaScript" src="js/bootstrap.min.js"></script>
+    <script language="JavaScript" src="js/applyFrom.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/applyForm.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<div>
+    <div class="panel-head">
+        <b><span class="fa fa-address-book-o"></span>
+            &nbsp;印章刻制申请表</b>
+        <span style="float: right">
+            业务流水号：<span>00715626X10Z24030011612007000</span>
+             ， 时间：<span id="cur-time"></span>
+        </span>
+    </div>
+    <table class="table table-hover text-center">
+        <tr>
+            <th width="10%">申请单位<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="unit-name" type="text" value="">
+            </td>
+            <th width="10%">单位电话<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="unit-call" type="tel" value="">
+            </td>
+        </tr>
+        <tr>
+            <th>统一社会信用代码<img src="images/correct.png"></th>
+            <td colspan="3">
+                <input id="credit-code" type="text" value="">
+            </td>
+        </tr>
+        <tr>
+            <th>申请地址<img src="images/correct.png"></th>
+            <td colspan="3">
+                <input id="apply-address" type="text" value="">
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">法人姓名<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="legal-name" type="text" value="">
+            </td>
+            <th width="10%">手机号码<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="legal-phone" type="tel" value="">
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">经办人姓名<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="agent-name" type="text" value="">
+            </td>
+            <th width="10%">手机号码<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="agent-phone" type="tel" value="">
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">法人身份证<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="legal-id" type="text" value="">
+            </td>
+            <th width="10%">经办人身份证<img src="images/correct.png"></th>
+            <td width="40%">
+                <input id="agent-id" type="tel" value="">
+            </td>
+        </tr>
+        <tr>
+            <th style="line-height: 45px">申请事由<img src="images/correct.png"></th>
+            <td colspan="3">
+                <textarea id="apply-reason" type="text" value=""></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="4">印章刻制全称</th>
+        </tr>
+        <tr>
+            <th width="10%">1<img src="images/correct.png"></th>
+            <td colspan="2">
+                <input type="text" value="">
+            </td>
+            <td width="40%">
+                <label><input type="radio" name="stamp1" id="wuli-1" checked>&nbsp;物理印章</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="stamp1" id="dianzi-1">&nbsp;电子印章</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">2<img src="images/correct.png"></th>
+            <td colspan="2">
+                <input type="text" value="">
+            </td>
+            <td width="40%">
+                <label><input type="radio" name="stamp2" id="wuli-2" checked>&nbsp;物理印章</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="stamp2" id="dianzi-2">&nbsp;电子印章</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">3<img src="images/correct.png"></th>
+            <td colspan="2">
+                <input type="text" value="">
+            </td>
+            <td width="40%">
+                <label><input type="radio" name="stamp3" id="wuli-3">&nbsp;物理印章</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="stamp3" id="dianzi-3" checked>&nbsp;电子印章</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">4<img src="images/correct.png"></th>
+            <td colspan="2">
+                <input type="text" value="">
+            </td>
+            <td width="40%">
+                <label><input type="radio" name="stamp4" id="wuli-4">&nbsp;物理印章</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="stamp4" id="dianzi-4" checked>&nbsp;电子印章</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="10%">5<img src="images/correct.png"></th>
+            <td colspan="2">
+                <input type="text" value="">
+            </td>
+            <td width="40%">
+                <label><input type="radio" name="stamp" id="wuli-5" checked>&nbsp;物理印章</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="stamp" id="dianzi-5">&nbsp;电子印章</label>
+            </td>
+        </tr>
+    </table>
+    <center>
+        <button class="btn-lg bg-primary" type="submit">提交</button>
+    </center>
+
+</div>
+<div class="my-mask"></div>
+<div class="call-tip">
+    <span class="fa fa-warning"></span> 请输入有效的单位电话！
+</div>
+<div class="phone-tip">
+        <span class="fa fa-warning"></span> 请输入有效的手机号码！
+</div>
+<div class="id-tip">
+    <span class="fa fa-warning"></span> 请输入有效的身份证号！
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号注册</title>
+    <link rel="stylesheet" type="text/css" href="css/register.css"/>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".file").hover(function(e){
+                var X = e.pageX + "px";
+                var Y = (e.pageY - 50) + "px";
+                $(".little").show().css({"left": X,"top": Y});
+                $("#little").attr("src",this.val());
+            },function(e){
+                $(".little").hide();
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="header w" id='header'>
+    <div class="headLeft">
+        <i class="fa fa-phone fa-lg"></i>
+        <span>400-0696-189</span>
+        <span>
+            <a href="#"><i class="fa fa-weixin fa-lg"></i></a>
+            &nbsp;
+            <a href="#"><i class="fa fa-qq fa-lg"></i></a>
+        </span>
+        <span><a href="#">关于我们</a></span>
+    </div>
+    <div class="headRight">
+        <span>
+            <i class="fa fa-user fa-lg"></i>&nbsp;
+            <a href="login.html">登录</a>
+        </span>     
+        <span>
+            <i class="fa fa-user-plus fa-lg"></i>&nbsp;
+            <a href="register.html">注册</a>
+        </span>
+    </div>
+</div>
+<div class='clearfix line'></div>
+
+<div id="main">
+    <form action="" method="post" name="">
+        <div class="title">
+            <h3>
+                创建一个账户<br/>
+                <em>请填写您的注册账户信息，用于登录。</em>
+            </h3>
+        </div>
+        <div class="f-body">
+            <div class="box">
+                <div class="box-1">企业统一信用代码：</div>
+                <div class="box-2">
+                    <input type="text" id="registerKey" maxlength="20" class="box-ipt" placeholder="用于验证您是否有权限申请该账号" required="required" onblur="checkKey(this.value)"/>
+                </div>
+                <div class="box-3" id="registerKey-prompt"></div>
+            </div>
+            <div class="box">
+                <div class="box-1">企业名：</div>
+                <div class="box-2">
+                    <input type="text" id="company" class="box-ipt" required="required" onblur="checkCpy(this.value)"/>
+                </div>
+                <div class="box-3" id="company-prompt"></div>
+            </div>
+            <div class="box">
+                <div class="box-1">联系人姓名：</div>
+                <div class="box-2">
+                    <input type="text" id="name" maxlength="12" class="box-ipt" required="required" onblur="checkName(this.value)"/>
+                </div>
+                <div class="box-3" id="name-prompt"></div>
+            </div>
+            <div class="box">
+                <div class="box-1">联系人电话：</div>
+                <div class="box-2">
+                    <input type="text" id="tel" maxlength="11" class="box-ipt" placeholder="联系人11位手机号码" required="required" onblur="checkTel(this.value)"/>
+                </div>
+                <div class="box-3" id="tel-prompt"></div>
+            </div>
+            <div class="box">
+                <div class="box-1">手机验证码：</div>
+                <div class="file-box">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type='text' name='textfield' id='textfield1' class='txt' style="width: 100px;" />
+                        <input type='button' class='btn' style="width: 80px;padding: 5px;border-radius: 2px" value='获取验证码' />
+                    </form>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-1">印章一：</div>
+                <div class="file-box">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type='text' name='textfield' id='textfield1' class='txt' />
+                        <input type='button' class='btn' value='浏览...' />
+                        <input type="file" name="fileField" class="file" id="fileField" size="28" onchange="document.getElementById('textfield1').value=this.value" />
+                    </form>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-1">印章二：</div>
+                <div class="file-box">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type='text' name='textfield' id='textfield2' class='txt' />
+                        <input type='button' class='btn' value='浏览...' />
+                        <input type="file" name="fileField" class="file" id="fileField" size="28" onchange="document.getElementById('textfield2').value=this.value" />
+                    </form>
+                </div>
+            </div>
+            <div class="box" style="text-align: center">
+                <input type="button" value="注册" class="submit" />
+            </div>
+        </div>
+    </form>
+</div>
+<div class="little">
+    <img id="little" src=""/>
+</div>
+<div class="footer">
+    <em>Copyright &copy; 北京师范大学珠海分校凤凰山创业谷 | 2016.12</em>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+body {
+    color: #333;
+    font-family: "微软雅黑";
+
+}
+/*隐藏滚动条*/
+body::-webkit-scrollbar {
+    display: none
+}
+
+.panel-head {
+    padding: 10px 15px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+table {
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    border: 1px solid #d1d1d1;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+button {
+    border: none;
+    padding: 10px 35px !important;
+    margin-bottom: 2%;
+    background: #b10228 !important;
+}
+
+button:hover {
+    background: #c6032c !important;
+}
+
+img{
+    width: 22px;
+    height: 22px;
+    display: none;
+}
+
+/*表单验证样式*/
+.errorTip{
+    background: rgba(255,0,0,0.1);
+}
+
+.my-mask {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0,0,0, 0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
+.call-tip, .phone-tip, .id-tip {
+    width: 300px;
+    color: #fff;
+    font-size: 1.5em;
+    position: absolute;
+    display: none;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -150px;
+}

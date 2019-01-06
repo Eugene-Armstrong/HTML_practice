@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>印章系统</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script language="javascript" src="js/jquery.min.js"></script>
+    <style type="text/css">
+        /*当前位置*/
+        .cur-location, .sub-page {
+            width: calc(100% - 220px);
+            font-size: 14px;
+            position: fixed;
+            right: 0;
+            margin-top: 65px;
+            height: 40px;
+            padding: 10px 2%;
+            color: #696969;
+            background: #f5f5f5;
+            border-bottom: 1px solid #bbbbbb;
+        }
+        .sub-page{
+            height:calc(100% - 105px - 36px);
+            margin-top: 105px;
+            padding:20px;
+            background: #fff;
+            z-index: 0;
+        }
+        iframe{
+            border-radius: 4px;
+            border: 1px solid #d6d6d6;
+        }
+    </style>
+    <script language="javascript">
+        $(function () {
+            /*左侧导航栏*/
+            $(".left-nav ul li").each(function (index) {
+                $(this).click(function () {
+                    $(".left-nav ul li").removeClass("active");
+                    $(this).addClass("active");
+                    $(".left-nav ul li a span").removeClass("active-color");
+                    $(this).children("a").children("span").addClass("active-color");
+//                    if(!$(this)){
+//                        $(".second-nav").slideUp(500);
+//                    }
+                });
+            });
+            $("#my-seal a").click(function () {
+                $(".second-nav").slideToggle(500);
+                $("#my-seal a div").toggleClass("fa-angle-double-down");
+                $("#my-seal a div").toggleClass("fa-angle-double-left");
+            });
+            $(".second-nav li").each(function () {
+                $(this).click(function () {
+                    $(".second-nav span").removeClass("active-color");
+                    $(this).children("span").addClass("active-color");
+                });
+            });
+            /*个人信息下拉菜单*/
+            $("#information").click(function () {
+                $("#information").toggleClass("information");
+                $(".right-nav-information").slideToggle(300);
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="left">
+    <div class="left-top">
+        <img src="images/logo-main.png"/>
+    </div>
+    <div class="left-nav">
+        <ul>
+            <li class="active">
+                <a href="#">
+                    <span class="fa fa-navicon"></span>&nbsp;
+                    <span class="active-color">功能列表</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fa fa-book"></span>&nbsp;
+                    <span>日志管理</span>
+                </a>
+            </li>
+            <li id="my-seal">
+                <a href="#">
+                    <span class="fa fa-gear"></span>&nbsp;
+                    <span>印章管理</span>
+
+                    <div class="fa fa-angle-double-down" style="font-size: 1em;float: right;margin-right: 10%"></div>
+                </a>
+                <ul class="second-nav hide">
+                    <li><span class="fa fa-caret-right">&nbsp;&nbsp;企业印章</span></li>
+                    <li><span class="fa fa-caret-right">&nbsp;&nbsp;申请印章</span></li>
+                    <li><span class="fa fa-caret-right">&nbsp;&nbsp;审批状态</span></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="right">
+    <div class="right-nav">
+        <div class="title">电子印章服务平台</div>
+        <div id="information" style="float: right;height: 100%;padding: 20px 15px;margin-right: 8%; cursor:pointer;">
+            <span><div class="fa fa-user"></div>&nbsp;&nbsp;&nbsp;印章管理员&nbsp;<div
+                    class="fa fa-angle-down"></div></span></li>
+        </div>
+    </div>
+    <div class="right-page">
+        <iframe class="T_iframe" name="iframe0" width="100%" height="100%" src="index.html" frameborder="0"
+                data-id="index.html" seamless=""></iframe>
+    </div>
+    <div class="footer">
+        <div class="pull-right">
+            © 2016-2022 <a href="#" target="_blank">润成科技有限公司</a>
+        </div>
+    </div>
+</div>
+<div class="right-nav-information">
+    <ul>
+        <li><a href="#" style="border-bottom: 2px #eee solid;">查看个人信息</a></li>
+        <li><a href="login.html" style="margin-top: 1px">退出</a></li>
+    </ul>
+</div>
+<div class="cur-location">
+    <span class="fa fa-home"> 首页</span>
+    <span style="color: #999">&nbsp;&nbsp;/&nbsp;&nbsp;申请印章</span>
+</div>
+<div class="sub-page">
+    <iframe scrolling="auto" frameborder="0" src="applyForm.html" name="right" width="100%" height="100%"></iframe>
+</div>
+</body>
+</html>
