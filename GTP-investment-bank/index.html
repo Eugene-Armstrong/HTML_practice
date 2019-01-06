@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>智造投行</title>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body style="overflow-x: hidden">
+<div class="zh-wrap">
+    <!--导航-->
+    <header class="navbar navbar-default">
+        <div class="container">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#my-navbar"
+                    id="nav-drop">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <span><img src="images/bank-logo.png" style="height: 150%;margin-top: -5%"/></span>
+                </a>
+            </div>
+            <div id="my-navbar" class="collapse navbar-collapse">
+                <!--1级导航 -->
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            金融服务&nbsp;
+                            <span class="glyphicon glyphicon-menu-down"></span></a>
+                        <!--2级导航-->
+                        <ul class="dropdown-menu" style="display: none;">
+                            <li><a href="#">企业借贷</a></li>
+                            <li><a href="#">私募融资</a></li>
+                            <li><a href="#">兼并收购</a></li>
+                            <li><a href="#">上市</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            数据服务&nbsp;
+                            <span class="glyphicon glyphicon-menu-down"></span></a>
+                        <!--2级导航-->
+                        <ul class="dropdown-menu" style="display: none;">
+                            <li><a href="#">用户行为产品</a></li>
+                            <li><a href="#">广告营销产品</a></li>
+                            <li><a href="#">企业数据产品</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            论坛活动&nbsp;
+                            <span class="glyphicon glyphicon-menu-down"></span></a>
+                        <!--2级导航-->
+                        <ul class="dropdown-menu" style="display: none;">
+                            <li>
+                                <a href="#">国内</a></li>
+                            <li>
+                                <a href="#">国外</a></li>
+                            <li>
+                                <a href="#">活动回顾</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">智造人才库</a></li>
+                    <li><a href="#"> 注册 </a></li>
+                    <li><a href="#"> 登录 </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!--首页内容-->
+    <div class="index-box">
+        <div class="container">
+            <p class="index-contents" style="margin-top: 15rem"><b>智造投行</b></p>
+            <p class="index-contents">为智能制造企业提供全金融服务的新型金融机构</p>
+            <p style="width:30%;height: 4px;background: #8a1c21;margin: 20px 0"></p>
+            <p class="index-contents"><b>NEW FINANCIAL INSTITUTION </b></p>
+            <p class="index-contents">Providing full financial services </p>
+            <p class="index-contents">For intelligent manufacturing enterprises</p>
+        </div>
+        <div style="text-align: center">
+            <a href="#" title="了解更多" id="more">
+                <span style="font-size: 3rem;margin-top: 2rem;color: #fff"
+                      class="glyphicon glyphicon-chevron-down"></span></a>
+        </div>
+    </div>
+
+    <!--金融服务-->
+    <div class="finance-box">
+        <div class="container">
+            <div class="finance-title">
+                <p><b>金融<span class="text-line">服务</span></b></p>
+                <p class="light">FINANCE SERVICE</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b>企<span class="text-line">业借</span>贷</b></p>
+                        <p class="light">Business Loan</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>企<span class="text-line">业借</span>贷</b></p>
+                                <p class="light">Business Loan</p>
+                            </div>
+                            <div class="sub-content">
+                                围绕着企业融资需求<br>为中小微企业<br>
+                                提供小额、便捷的融资服务<br>……<br><br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="img-responsive" src="images/tmp2.jpg">
+                    <div class="sub-title">
+                        <p><b>私<span class="text-line">募融</span>资</b></p>
+                        <p class="light">Private Placement Advisory</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>私<span class="text-line">募融</span>资</b></p>
+                                <p class="light">Private Placement Advisory</p>
+                            </div>
+                            <div class="sub-content">
+                                我们的财务顾问团队<br>为处于初创期和成长期的公司<br>
+                                提供专业的私募融资服务<br>协助客户制定最优的资本结构<br>
+                                以帮助他们融资和更快地扩张市场<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="img-responsive" src="images/tmp2.jpg">
+                    <div class="sub-title">
+                        <p><b>兼<span class="text-line">并收</span>购</b></p>
+                        <p class="light">M&A Advisory</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>兼<span class="text-line">并收</span>购</b></p>
+                                <p class="light">M&A Advisory</p>
+                            </div>
+                            <div class="sub-content">
+                                我们的并购团队为客户<br>在战略联盟和收购交易的过程中<br>
+                                提供专业的顾问服务<br>……<br><br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b><span class="text-line">上市</span></b></p>
+                        <p class="light">Company listing </p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b><span class="text-line">上市</span></b></p>
+                                <p class="light">Company listing </p>
+                            </div>
+                            <div class="sub-content">
+                                围绕着企业融资需求<br>为中小微企业<br>
+                                提供小额、便捷的融资服务<br>……<br><br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--数据服务-->
+    <div class="data-box">
+        <div class="container">
+            <div class="data-title" style="text-align: left">
+                <p><b><span class="text-line">数据</span>服务</b></p>
+                <p class="light">DATA SERVICE</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b>用户<span class="text-line">行为</span>产品</b></p>
+                        <p class="light">User Behavior Products</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>用户<span class="text-line">行为</span>产品</b></p>
+                                <p class="light">User Behavior Products</p>
+                            </div>
+                            <div class="sub-content">
+                                让产品更加详细清楚地<br>了解用户的行为习惯<br>
+                                让产品的营销更加精准、有效<br>提高业务转化率<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp2.jpg">
+                    <div class="sub-title">
+                        <p><b>广告<span class="text-line">营销</span>产品</b></p>
+                        <p class="light">Advertising Marketing Products</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>广告<span class="text-line">营销</span>产品</b></p>
+                                <p class="light">Advertising Marketing Products</p>
+                            </div>
+                            <div class="sub-content">
+                                让产品更加详细清楚地<br>了解用户的行为习惯<br>
+                                让产品的营销更加精准、有效<br>提高业务转化率<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b>企业<span class="text-line">数据</span>产品</b></p>
+                        <p class="light">Enterprise Data Products</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>企业<span class="text-line">数据</span>产品</b></p>
+                                <p class="light">Enterprise Data Products</p>
+                            </div>
+                            <div class="sub-content">
+                                让产品更加详细清楚地<br>了解用户的行为习惯<br>
+                                让产品的营销更加精准、有效<br>提高业务转化率<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--论坛活动-->
+    <div class="forum-box">
+        <div class="container">
+            <div class="data-title">
+                <p><b>论坛<span class="text-line">活动</span></b></p>
+                <p class="light">FORUM ACTIVITY</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b><span class="text-line">国内</span></b></p>
+                        <p class="light">Domestic Events</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b><span class="text-line">国内</span></b></p>
+                                <p class="light">Domestic Events</p>
+                            </div>
+                            <div class="sub-content">
+                                围绕创新主题<br>紧扣时代脉搏<br>
+                                携手全球创新力量<br>聚焦创新驱动战略<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp2.jpg">
+                    <div class="sub-title">
+                        <p><b><span class="text-line">国外</span></b></p>
+                        <p class="light">FOREIGN EVENTS</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b><span class="text-line">国外</span></b></p>
+                                <p class="light">FOREIGN EVENTS</p>
+                            </div>
+                            <div class="sub-content">
+                                围绕创新主题<br>紧扣时代脉搏<br>
+                                携手全球创新力量<br>聚焦创新驱动战略<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-4">
+                    <img class="img-responsive" src="images/tmp1.jpg">
+                    <div class="sub-title">
+                        <p><b>活<span class="text-line">动回</span>顾</b></p>
+                        <p class="light">Events Review</p>
+                    </div>
+                    <div class="my-hover">
+                        <div class="bg-color">
+                            <div class="sub-title">
+                                <p><b>活<span class="text-line">动回</span>顾</b></p>
+                                <p class="light">Events Review</p>
+                            </div>
+                            <div class="sub-content">
+                                围绕创新主题<br>紧扣时代脉搏<br>
+                                携手全球创新力量<br>聚焦创新驱动战略<br>……<br><br>
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <a href="#">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--智造人才库-->
+    <div class="talent-box">
+        <div style="padding: 8%">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-5" id="talent">
+                    <div class="talent-title" style="text-align: left">
+                        <p><b><span class="text-line">智造</span>人才库</b></p>
+                        <p class="light">IM TALENT DATABASE</p>
+                    </div>
+                    <div class="talent-contents">
+                        招商与招才并举，引资与引智并重，
+                        推进招商引资与招才引智互动融合，
+                        为经济转型发展提供新的动力源泉。
+                        根据经验，我们将技术人才分为高、中、低三个档位,
+                        我们为个人提供技能培训、工作对接,技能共享平台;
+                        为企业提供人才对接、团队与技术引进以及人才数据附带技术等服务。
+                        <div style="text-align: center">
+                            <span class="glyphicon glyphicon-hand-right"></span>&nbsp;
+                            <a href="#" style="color: #777">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="images/pic01.jpg" style="width: 100%" class="my-filter">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--回到顶部-->
+    <div class="go-top">
+        <a href="#" title="回到顶部">
+            <span class="glyphicon glyphicon-arrow-up"
+                  style="font-size: 3rem;color: #fff"></span>
+        </a>
+    </div>
+
+    <!--页脚-->
+    <!--<div class="footer">-->
+        <!--<div class="footer-menu">-->
+            <!--<ul>-->
+                <!--<li><a>联系我们</a></li>-->
+                <!--<li><a>隐私条约</a></li>-->
+                <!--<li><a>使用条款</a></li>-->
+                <!--<li><a>信息无障碍选项</a></li>-->
+                <!--<li><a>反馈</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
