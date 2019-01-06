@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="pixel-ratio-1">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>大创</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
+    <style type="text/css">
+        .wechat-username{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <!--一级导航页面-->
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+            <!-- 标题栏 -->
+            <header class="bar bar-nav">
+                <a class="icon icon-settings pull-left open-panel"></a>
+                <h1 class="title">大创TEST</h1>
+            </header>
+
+            <!-- 工具栏 -->
+            <nav class="bar bar-tab">
+                <a class="tab-item external active" href="#" id="navHome">
+                    <span class="icon icon-home"></span>
+                    <span class="tab-label">首页</span>
+                </a>
+                <a class="tab-item external" href="mine.html" target="mine" id="navMine">
+                    <span class="icon icon-me"></span>
+                    <span class="tab-label">我的</span>
+                    <span class="badge">2</span>
+                </a>
+            </nav>
+
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+                <div class="content native-scroll" id="homeContent">
+                    <div class="content-block-title">可报名活动</div>
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <a href="enroll.html" class="item-link item-content">
+                                    <div class="item-media"><img src="images/activity-img.jpg" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">活动标题</div>
+                                            <div class="item-after">我要报名</div>
+                                        </div>
+                                        <div class="item-text">这里是活动描述这里是活动描述这里是活动描述...</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="enroll.html" class="item-link item-content">
+                                    <div class="item-media"><img src="images/activity-img.jpg" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">活动标题</div>
+                                            <div class="item-after">我要报名</div>
+                                        </div>
+                                        <div class="item-text">这里是活动描述这里是活动描述这里是活动描述...</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="enroll.html" class="item-link item-content">
+                                    <div class="item-media"><img src="images/activity-img.jpg" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">活动标题</div>
+                                            <div class="item-after">我要报名</div>
+                                        </div>
+                                        <div class="item-text">这里是活动描述这里是活动描述这里是活动描述...</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--“我的”路由子页面页面-->
+                <iframe scrolling="auto" frameborder="0" src="mine.html"
+                        style="display: none" width="100%" height="100%" name="mine"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- popup, panel 等放在这里 -->
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <b>侧边栏信息</b>
+            <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-toggle"></i></div>
+                <div class="item-inner">
+                    <div class="item-input">
+                        <br>
+                        <span>夜间模式</span>
+                        <label class="label-switch">
+                            <input type="checkbox">
+                            <div class="checkbox"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- 点击关闭收起侧边栏 -->
+            <p><a href="#" class="close-panel">关闭</a></p>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        //底部导航点击样式
+        $("nav a").click(function () {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+        });
+
+        //主题更改
+        $(".label-switch").click(function () {
+            $("body").toggleClass("theme-dark");
+        });
+
+        //底部导航对应内容的Tab切换
+        $("#navMine").click(function () {
+            $("iframe").show();
+            $("#homeContent").hide();
+        });
+        $("#navHome").click(function () {
+            $("iframe").hide();
+            $("#homeContent").show();
+        })
+    })
+</script>
+</body>
+</html>
