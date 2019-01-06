@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
+    <title>珠海市低收入群体建档立卡信息采集表</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/echarts.js"></script>
+    <style type="text/css">
+        .main{
+            width: 100%;
+            height:600px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 20px #000;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;width: 50%;margin-left: 25%">
+    <div id="main" class="main"></div>
+</div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+        title : {
+            text: '困难类型',
+            subtext: '',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['因病','因残','因学','因灾','缺土地','缺水','缺技术','缺劳力','缺资金','自身发展动力不足','其它']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'因病'},
+                    {value:310, name:'因残'},
+                    {value:234, name:'因学'},
+                    {value:135, name:'因灾'},
+                    {value:563, name:'缺土地'},
+                    {value:456, name:'缺水'},
+                    {value:666, name:'缺技术'},
+                    {value:888, name:'缺资金'},
+                    {value:921, name:'自身发展动力不足'},
+                    {value:123, name:'其它'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+
+</script>
+</body>
+</html>

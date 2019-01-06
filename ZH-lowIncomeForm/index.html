@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
+    <title>珠海市低收入群体建档立卡信息采集表</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*家庭成员项的添加和删除*/
+            var member = $("tbody").html();
+            $(".add").click(function() {
+                $("tbody").append(member);
+                var count = $("tbody tr").length;
+                $("tbody tr:last td:eq(1)").html(count)
+                $(".remove").click(function() {
+                    $(this).parent().parent("tr").remove();
+                    for(var i=0;i<count;i++){
+                        $("tbody tr:eq("+i+") td:eq(1)").html(i+1)
+                    }
+                });
+            });
+            $(".remove").click(function() {
+                $(this).parent().parent("tr").remove();
+            });
+
+            /*实现困难类型复选框：最多选两项*/
+            $("input[name='A21Checkbox']").click(function () {
+                var chboxL = $("input[name='A21Checkbox']:checked").length;
+                if (chboxL > 2) {
+                    alert("最多选两项！");
+                    return false;
+                }
+                if ($("input[name='A20radios']:checked").attr("value") == $(this).attr("value")) {
+                    alert("请勿重复选择！");
+                    return false;
+                }
+
+            });
+            /*实现单选框与已选复选框选项不重复效果*/
+            $("input[name='A20radios']").click(function () {
+                var radioV = $(this).attr("value");
+                var chboxV1 = $("input[name='A21Checkbox']:checked").attr("value");
+                var chboxV2 = $("input[name='A21Checkbox']:checked:last").attr("value");
+                if (radioV == chboxV1 || radioV == chboxV2) {
+                    alert("请勿重复选择！");
+                    return false;
+                }
+            });
+
+            /*收入情况、生活生产条件-输入框丢失焦点事件*/
+            $(".col-md-4 input[type='number']").blur(function () {
+                if($(this).val().length == 0){
+                    $(this).val(parseFloat(0).toFixed(2));
+                }else{
+                    //保留两位小数
+                    $(this).val(parseFloat($(this).val()).toFixed(2));
+                }
+            })
+
+            /*提交判断输入框是否为空*/
+            $("#commit").click(function () {
+                if($("#village").val().length == 0){
+                    $("#commit").attr("data-toggle","");
+                    alert("【村(社区)】是必填项！" );
+                }else{
+                    $("input[name='finalCheck']").each(function () {
+                        if($(this).val().length == 0){
+                            var l = $(this).prev().text().length;
+                            var txt = $(this).prev().text().substring(0,l-1);
+                            alert("【"+txt + "】是必填项！");
+                            $("#commit").attr("data-toggle","");
+                            return false;
+                        }else{
+                            $("#commit").attr("data-toggle","modal");
+                        }
+                    })
+                }
+            })
+
+            /*判断填写内容是否符合规则*/
+            /*$("#phone").parent().nextAll().click(function(){
+                var str = $("#phone").val();
+                var phone = /^[0-9_]{11}$/;
+                if(phone.test(str)){
+
+                }else{
+                alert('户主联系电话填写错误！');
+                }
+            });*/
+        })
+
+    </script>
+</head>
+<body class="tab-content">
+<div role="tabpanel" class="my-div">
+    <!--一、基本信息-->
+    <form class="form-inline">
+        <h2>一、基本信息</h2>
+        <hr>
+        <div class="form-group">
+            <div class="f1">
+                <label>家庭住址:</label>
+                <input class="form-control w1" style="text-align: right" type="text" placeholder="珠海" readonly>
+                <label>市</label>
+                <select id="area" class="form-control select">
+                    <option>香洲</option>
+                    <option>金湾</option>
+                    <option>斗门</option>
+                </select>
+                <label for="area">区</label>
+                <select id="town" class="form-control select">
+                    <option>唐家湾</option>
+                    <option>金鼎</option>
+                    <option>拱北</option>
+                </select>
+                <label for="town">镇</label>
+                <input type="text" name="finalCheck" class="form-control w4" style="text-align: right" id="village" placeholder="">
+                <label for="village">村(社区)</label>
+            </div>
+            <div class="f2">
+                <label>经度:</label>
+                <input class="form-control w3" type="text" placeholder="10.1234567" readonly>
+                <label>纬度:</label>
+                <input class="form-control w3" type="text" placeholder="10.1234567" readonly>
+            </div>
+            <div class="f1">
+                <label for="code">家庭编码:</label>
+                <input type="text" name="finalCheck" class="form-control w4" id="code" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="f1">
+                <label for="name">户主名称:</label>
+                <input type="text" name="finalCheck" class="form-control w2" id="name" placeholder="">
+            </div>
+            <div class="f1">
+                <label for="phone">联系电话:</label>
+                <input type="tel" name="finalCheck" class="form-control w3" id="phone" placeholder="">
+            </div>
+            <div class="f1">
+                <label for="bank">开户银行(选填):</label>
+                <select id="bank" class="form-control select">
+                    <option>中国农业银行</option>
+                    <option>中国工商银行</option>
+                    <option>中国建设银行</option>
+                </select>
+            </div>
+            <div class="f1">
+                <label for="bank-account">银行账号(选填):</label>
+                <input type="text" class="form-control w5" id="bank-account" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A1 识别标准(单选)：</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="radio" id="A1Checkbox" name="optionsRadios" checked> 市定标准(11000元)
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-6" style="padding-left: 0">
+                <label>A2 低收入户属性(可多选)：</label>
+                <div class="checkbox">
+                    <label class="radio-inline">
+                        <input id="A2Checkbox1" type="checkbox"> 低保户
+                    </label>
+                    <label class="radio-inline">
+                        <input id="A2Checkbox2" type="checkbox"> 五保户
+                    </label>
+                    <label class="radio-inline">
+                        <input id="A2Checkbox3" type="checkbox"> 残疾户
+                    </label>
+                    <label class="radio-inline">
+                        <input id="A2Checkbox4" type="checkbox"> 单亲户
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A3 是否军烈属：</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="radio" name="A3radios" checked> 是
+                    </label>
+                    <label>
+                        <input type="radio" name="A3radios"> 否
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A4 是否独生子女户：</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="radio" name="A4radios" checked> 是
+                    </label>
+                    <label>
+                        <input type="radio" name="A4radios"> 否
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A5 是否双女户：</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="radio" name="A5radios" checked> 是
+                    </label>
+                    <label>
+                        <input type="radio" name="A5radios"> 否
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--二、家庭成员信息-->
+    <form class="form-inline">
+        <h2>二、家庭成员信息</h2>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th><span class="add"></span></th>
+                    <th>序号</th>
+                    <th>A6 姓名</th>
+                    <th>A7 性别</th>
+                    <th>证件类型</th>
+                    <th>A8 证件号码</th>
+                    <th>A9 与户主关系</th>
+                    <th>A10 民族</th>
+                    <th>A11<br>政治面貌</th>
+                    <th>A12<br>文化程度</th>
+                    <th>A13 在校生情况</th>
+                    <th>A14<br>健康状况</th>
+                    <th>A15<br>劳动能力</th>
+                    <th>A16<br>务工情况</th>
+                    <th>A17<br>务工时间</th>
+                    <th>A18 是否现役军人</th>
+                    <th>A19 是否参加大病医疗保险</th>
+                    <th>入读技工院校意愿</th>
+                    <th>培训需求</th>
+                    <th>技能状况</th>
+                    <th>是否参加城镇职工基本养老保险</th>
+                    <th>是否参加城乡居民基本医疗保险</th>
+                    <th>是否参加城乡居民基本养老保险</th>
+                    <th>城乡居民基本养老保险个人缴费档次或目前领取养老金水平</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="remove"></span></td>
+                    <td scope="row">1</td>
+                    <td><input type="text" class="form-control w2" id="A6" placeholder="">
+                    </td>
+                    <td>
+                        <select id="A7" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="id-type" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control w5" id="A8" placeholder="">
+                    </td>
+                    <td>
+                        <select id="A9" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A10" class="form-control select">
+                            <option>汉族</option>
+                            <option>汉族</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A11" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A12" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A13" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A14" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A15" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A16" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control second-input" id="A17" placeholder="">
+                    </td>
+                    <td>
+                        <select id="A18" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="A19" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control second-input" id="example1" placeholder="">
+                    </td>
+                    <td><input type="text" class="form-control second-input" id="example2" placeholder="">
+                    </td>
+                    <td><input type="text" class="form-control second-input" id="example3" placeholder="">
+                    </td>
+                    <td>
+                        <select id="example4" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="example5" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="example6" class="form-control select">
+                            <option>是</option>
+                            <option>否</option>
+                            <option>是</option>
+                            <option>否</option>
+                            <option>是</option>
+                            <option>否</option>
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="example7" class="form-control select select1">
+                            <option>高</option>
+                            <option>中</option>
+                            <option>低</option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <!--三、困难类型-->
+    <form class="form-horizontal">
+        <h2>三、困难类型</h2>
+        <hr>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">A20 主要困难类型（单选）：</label>
+            <div class="col-sm-9">
+                <label class="radio-inline" style="margin-left: 10px">
+                    <input type="radio" id="A20Checkbox1" name="A20radios" value="option1" checked> 因病
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox2" name="A20radios" value="option2"> 因残
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox3" name="A20radios" value="option3"> 因学
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox4" name="A20radios" value="option4"> 因灾
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox5" name="A20radios" value="option5"> 缺土地
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox6" name="A20radios" value="option6"> 缺水
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox7" name="A20radios" value="option7"> 缺技术
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox8" name="A20radios" value="option8"> 缺劳力
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox9" name="A20radios" value="option9"> 缺资金
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox10" name="A20radios" value="option10"> 自身发展动力不足
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="A20Checkbox11" name="A20radios" value="option11"> 其它
+                </label>
+            </div>
+        </div>
+
+    </form>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">A21 其他困难类型（最多选两项）：</label>
+            <div class="col-sm-10">
+                <label class="checkbox-inline" style="margin-left: 10px">
+                    <input type="checkbox" id="A21Checkbox1" name="A21Checkbox" value="option1"> 因病
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox2" name="A21Checkbox" value="option2"> 因残
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox3" name="A21Checkbox" value="option3"> 因学
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox4" name="A21Checkbox" value="option4"> 因灾
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox5" name="A21Checkbox" value="option5"> 缺土地
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox6" name="A21Checkbox" value="option6"> 缺水
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox7" name="A21Checkbox" value="option7"> 缺技术
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox8" name="A21Checkbox" value="option8"> 缺劳力
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox9" name="A21Checkbox" value="option9"> 缺资金
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox10" name="A21Checkbox" value="option10"> 自身发展动力不足
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="A21Checkbox11" name="A21Checkbox" value="option11"> 其它
+                </label>
+            </div>
+        </div>
+    </form>
+    <!--四、收入情况-->
+    <form class="form-horizontal">
+        <h2>四、收入情况（元）</h2>
+        <hr>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A22 工资性收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A22">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25d 残疾金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25d">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A26 生产经营支出：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A26">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A23 生产经营收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A23">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25e 养老保险金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25e">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27 转移性支出：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A27">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A24 财务性收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A24">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25f 生态补偿金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25f">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27a 个人所得税：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A27a">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25 转移性收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25g 其他转移性收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25g">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27b 社会保障支出：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A27b">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25a 计划生育金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25a">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25h 城乡居民基本医疗保险报销医疗费：
+                </label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25h">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27c 赡养支出：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A27c">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25b 低保金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25b">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25i 医疗救助金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25i">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27d 其他转移性支出：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A27d">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25c 五保金：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A25c">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A28 未偿还借/贷款：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A28">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A29 家庭可支配收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A29">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4" id="blank1"></div>
+            <div class="col-md-4" id="blank2"></div>
+            <div class="col-md-4">
+                <label class="col-md-6">A30 家庭年人均可支配收入：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A30">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    <!--五、生活条件-->
+    <form class="form-horizontal">
+        <h2>五、生活生产条件</h2>
+        <hr>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A31 耕地面积（亩）：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A31">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A33 与村主干路距离（公里）：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A33">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A36 是否加入农民专业合作社：</label>
+
+                <div class="col-md-6" style="display: inline-block">
+                    <label class="col-md-5" class="radio-inline">
+                        <input type="radio" id="A36y" name="A36radios" value="option1" checked> 是
+                    </label>
+                    <label class="col-md-5" class="radio-inline">
+                        <input type="radio" id="A36n" name="A36radios" value="option2"> 否
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A31a 有效灌溉面积（亩）：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A31a">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A34 住房面积（平方米）：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A34">
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A32 水面面积（亩）：</label>
+                <input class="col-md-6" type="number" name="finalCheck" id="A32">
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A35 主要住房是否危房：</label>
+
+                <div class="col-md-6" style="display: inline-block">
+                    <label class="col-md-5" class="radio-inline">
+                        <input type="radio" id="A35y" name="A35radios" value="option1" checked> 是
+                    </label>
+                    <label class="col-md-5" class="radio-inline">
+                        <input type="radio" id="A35n" name="A35radios" value="option2"> 否
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A35a 危房级别：</label>
+                <select class="col-md-6" id="A35a">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                </select>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    <a href="#" role="tab" data-toggle="tab">
+        <button type="button" id="commit" class="btn btn-success btn-lg" style="float: right;margin:20px 2%" data-toggle="" data-target=".bs-example-modal-sm">提交</button>
+    </a>
+
+    <!--确认框-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>是否确认提交？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

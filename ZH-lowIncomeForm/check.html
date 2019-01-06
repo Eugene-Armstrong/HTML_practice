@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
+    <title>珠海市低收入群体建档立卡信息采集表</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style type="text/css">
+        label {
+            font-weight: normal;
+            color: #a5a5a5;
+        }
+        span {
+            font-size: 1.1em;
+            color: #000000;
+            white-space: nowrap;
+            padding: 0 15px;
+        }
+        th {
+            color: #a5a5a5;
+            text-align: center;
+            vertical-align: middle!important;
+        }
+        button {
+            float: right!important;
+            margin: 20px 2%!important;
+            text-decoration: none!important;
+        }
+    </style>
+</head>
+<body class="tab-content">
+<div role="tabpanel" class="my-div">
+    <!--一、基本信息-->
+    <form class="form-inline">
+        <h2>一、基本信息</h2>
+        <hr>
+        <div class="form-group">
+            <div class="f1">
+                <label>家庭住址:</label>
+                <span id="city">珠海</span>
+                <label>市</label>
+                <span id="area">香洲</span>
+                <label for="area">区</label>
+                <span id="town">唐家湾</span>
+                <label for="town">镇</label>
+                <span id="village">凤凰</span>
+                <label for="village">村(社区)</label>
+            </div>
+            <div class="f2">
+                <label>经度:</label>
+                <span id="jing">10.26585461</span>
+                <label>纬度:</label>
+                <span id="wei">10.26585461</span>
+            </div>
+            <div class="f1">
+                <label for="code">家庭编码:</label>
+                <span id="code">2566156561</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="f1">
+                <label for="name">户主名称:</label>
+                <span id="name">2566156561</span>
+            </div>
+            <div class="f1">
+                <label for="phone">联系电话:</label>
+                <span id="phone">2566156561</span>
+            </div>
+            <div class="f1">
+                <label for="bank">开户银行(选填):</label>
+                <span id="bank">中国农业银行</span>
+            </div>
+            <div class="f1">
+                <label for="bank-account">银行账号(选填):</label>
+                <span id="bank-account">45126488946851456</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A1 识别标准(单选)：</label>
+                <span id="city-standard">市定标准(11000元)</span>
+            </div>
+            <div class="col-lg-6" style="padding-left: 0">
+                <label>A2 低收入户属性(可多选)：</label>
+                <span id="dibao">低保户</span>
+                <span id="wubao">五保户</span>
+                <span id="canji">残疾户</span>
+                <span id="danqin">单亲户</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A3 是否军烈属：</label>
+                <span id="A3y">是</span>
+                <!--<span id="A3n">否</span>-->
+            </div>
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A4 是否独生子女户：</label>
+                <span id="A4y">是</span>
+                <!--<span id="A4n">否</span>-->
+            </div>
+            <div class="col-lg-3" style="padding-left: 0">
+                <label>A5 是否双女户：</label>
+                <span id="A5y">是</span>
+                <!--<span id="A5n">否</span>-->
+            </div>
+        </div>
+    </form>
+    <!--二、家庭成员信息-->
+    <form class="form-inline">
+        <h2>二、家庭成员信息</h2>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th><span class="add"></span></th>
+                    <th>序号</th>
+                    <th>A6 姓名</th>
+                    <th>A7<br>性别</th>
+                    <th>证件类型</th>
+                    <th>A8 证件号码</th>
+                    <th>A9<br>与户主关系</th>
+                    <th>A10 民族</th>
+                    <th>A11<br>政治面貌</th>
+                    <th>A12<br>文化程度</th>
+                    <th>A13 在校生情况</th>
+                    <th>A14<br>健康状况</th>
+                    <th>A15<br>劳动能力</th>
+                    <th>A16<br>务工情况</th>
+                    <th>A17<br>务工时间</th>
+                    <th>A18<br>是否现役军人</th>
+                    <th>A19<br>是否参加大病医疗保险</th>
+                    <th>入读技工院校意愿</th>
+                    <th>培训需求</th>
+                    <th>技能状况</th>
+                    <th>是否参加城镇职工基本养老保险</th>
+                    <th>是否参加城乡居民基本医疗保险</th>
+                    <th>是否参加城乡居民基本养老保险</th>
+                    <th>城乡居民基本养老保险个人缴费档次或目前领取养老金水平</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="remove"></span></td>
+                    <td scope="row">1</td>
+                    <td><span id="A6">姓名</span>
+                    </td>
+                    <td>
+                        <span id="A7">男</span>
+                        <!--<span id="A7">女</span>-->
+                    </td>
+                    <td>
+                        <span id="id-type">居民身份证</span>
+                    </td>
+                    <td><span id="A8">4412241995xxxxxxxx</span>
+                    </td>
+                    <td>
+                        <span id="A9">父亲</span>
+                        <!--<span id="A9">母亲</span>-->
+                    </td>
+                    <td>
+                        <span id="A10">汉族</span>
+                    </td>
+                    <td>
+                        <span id="A11">是</span>
+                        <!--<span id="A11">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A12">是</span>
+                        <!--<span id="A12">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A13">是</span>
+                        <!--<span id="A13">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A14">是</span>
+                        <!--<span id="A14">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A15">是</span>
+                        <!--<span id="A15">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A16">是</span>
+                        <!--<span id="A16">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A17">时间</span>
+                    </td>
+                    <td>
+                        <span id="A18">是</span>
+                        <!--<span id="A18">否</span>-->
+                    </td>
+                    <td>
+                        <span id="A19">是</span>
+                        <!--<span id="A19">否</span>-->
+                    </td>
+                    <td>
+                        <span id="will">意愿</span>
+                    </td>
+                    <td>
+                        <span id="need">需求</span>
+                    </td>
+                    <td>
+                        <span id="skill">技能状况</span>
+                    </td>
+                    <td>
+                        <span id="example4">是</span>
+                        <!--<span id="example4">否</span>-->
+                    </td>
+                    <td>
+                        <span id="example5">是</span>
+                        <!--<span id="example5">否</span>-->
+                    </td>
+                    <td>
+                        <span id="example6">是</span>
+                        <!--<span id="example6">否</span>-->
+                    </td>
+                    <td>
+                        <span id="example7" style="padding: 0 45px">高</span>
+                        <!--<span id="example7">中</span>-->
+                        <!--<span id="example7">低</span>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <!--三、困难类型-->
+    <form class="form-horizontal">
+        <h2>三、困难类型</h2>
+        <hr>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">A20 主要困难类型（单选）：</label>
+            <div class="col-sm-9">
+                <span id="A20">因病</span>
+                <!--<span id="A20">因残</span>-->
+                <!--<span id="A20">因学</span>-->
+                <!--<span id="A20">因灾</span>-->
+                <!--<span id="A20">缺土地</span>-->
+                <!--<span id="A20">缺水</span>-->
+                <!--<span id="A20">缺技术</span>-->
+                <!--<span id="A20">缺劳力</span>-->
+                <!--<span id="A20">缺资金</span>-->
+                <!--<span id="A20">自身发展动力不足</span>-->
+                <!--<span id="A20">其它</span>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">A21 其他困难类型（最多选两项）：</label>
+            <div class="col-sm-9">
+                <!--<span id="A21Checkbox1">因病</span>-->
+                <span id="A21Checkbox2">因残</span>
+                <span id="A21Checkbox3">因学</span>
+                <span id="A21Checkbox4">因灾</span>
+                <!--<span id="A21Checkbox5">缺土地</span>-->
+                <!--<span id="A21Checkbox6">缺水</span>-->
+                <!--<span id="A21Checkbox7">缺技术</span>-->
+                <!--<span id="A21Checkbox8">缺劳力</span>-->
+                <!--<span id="A21Checkbox9">缺资金</span>-->
+                <!--<span id="A21Checkbox10">自身发展动力不足</span>-->
+                <!--<span id="A21Checkbox11">其它</span>-->
+            </div>
+        </div>
+    </form>
+    <!--四、收入情况-->
+    <form class="form-horizontal">
+        <h2>四、收入情况（元）</h2>
+        <hr>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A22 工资性收入：</label>
+                <span id="A22">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25d 残疾金：</label>
+                <span id="A25d">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A26 生产经营支出：</label>
+                <span id="A26">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A23 生产经营收入：</label>
+                <span id="A23">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25e 养老保险金：</label>
+                <span id="A25e">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27 转移性支出：</label>
+                <span id="A27">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A24 财务性收入：</label>
+                <span id="A24">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25f 生态补偿金：</label>
+                <span id="A25f">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27a 个人所得税：</label>
+                <span id="A27a">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25 转移性收入：</label>
+                <span id="A25">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25g 其他转移性收入：</label>
+                <span id="A25g">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27b 社会保障支出：</label>
+                <span id="A27b">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25a 计划生育金：</label>
+                <span id="A25a">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25h 城乡居民基本医疗保险报销医疗费：</label>
+                <span id="A25h">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27c 赡养支出：</label>
+                <span id="A27c">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25b 低保金：</label>
+                <span id="A25b">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25i 医疗救助金：</label>
+                <span id="A25i">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A27d 其他转移性支出：</label>
+                <span id="A27d">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A25c 五保金：</label>
+                <span id="A25c">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A28 未偿还借/贷款：</label>
+                <span id="A28">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A29 家庭可支配收入：</label>
+                <span id="A29">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4" id="blank1"></div>
+            <div class="col-md-4" id="blank2"></div>
+            <div class="col-md-4">
+                <label class="col-md-6">A30 家庭年人均可支配收入：</label>
+                <span id="A30">0.00</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    <!--五、生活条件-->
+    <form class="form-horizontal">
+        <h2>五、生活生产条件</h2>
+        <hr>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A31 耕地面积（亩）：</label>
+                <span id="A31">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A33 与村主干路距离（公里）：</label>
+                <span id="A33">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A36 是否加入农民专业合作社：</label>
+
+                <div class="col-md-6" style="display: inline-block">
+                    <span id="A36">是</span>
+                    <!--<span id="A36">否</span>-->
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A31a 有效灌溉面积（亩）：</label>
+                <span id="A31a">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A34 住房面积（平方米）：</label>
+                <span id="A34">0.00</span>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-4">
+                <label class="col-md-6">A32 水面面积（亩）：</label>
+                <span id="A32">0.00</span>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A35 主要住房是否危房：</label>
+
+                <div class="col-md-6" style="display: inline-block">
+                    <span id="A35">是</span>
+                    <!--<span id="A35">否</span>-->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-6">A35a 危房级别：</label>
+                <span id="A35a">A</span>
+                <!--<span id="A35a">B</span>-->
+                <!--<span id="A35a">C</span>-->
+                <!--<span id="A35a">D</span>-->
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    <button type="button" id="commit" class="btn btn-success btn-lg">确认</button>
+    <button type="button" id="back" class="btn btn-success btn-lg">修改</button>
+</div>
+</body>
+</html>
